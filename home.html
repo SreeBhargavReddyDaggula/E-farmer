@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block>
+    <div th:replace="fragments/head.html :: head"></div>
+</th:block>
+<body>
+
+<th:block>
+    <div th:replace="fragments/header.html :: header"></div>
+</th:block>
+<main>
+    <h3 th:text="|${greeting}, ${#authentication.getPrincipal().getUsername()}!|" class="text-center brush-script"></h3>
+    <div>
+        <div class="row d-flex justify-content-between">
+            <div class="data col-md">
+                <h1 class="text-center brush-script font-weight-bold" id="categoryTittle" th:text="|All Products|"></h1>
+                <div id="searchBar" class="input-group w-25">
+                        <span class="input-group-btn">
+                        <button class="btn btn-secondary mr-1" onclick="findProductByProductName()">
+                            <i class="fas fa-search"></i> Find</button>
+                        </span>
+                    <input type="text" th:name="username"
+                           class="form-control w-50" id="inputProductName"
+                           placeholder="Product name..."/>
+                </div>
+            </div>
+            <div class="print-container container-fluid">
+                <div class="row mb-4 d-flex justify-content-start products-data">
+
+                </div>
+            </div>
+        </div>
+    </div>
+  
+<section class="p-4 md:p-8 lg:p-12">
+  <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-6"><b>Recommendations</b></h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+    	
+    <div class="border bg-card text-card-foreground rounded-lg shadow-lg overflow-hidden" data-v0-t="card">
+      <img
+        src="https://res.cloudinary.com/dzrlwqy7g/image/upload/v1703249083/x0z7eprxphvsjtozhhow.jpg"
+        alt="Recommendation 1"
+        class="w-full object-cover h-48"
+        width= 150;
+        height= 150;
+        style="aspect-ratio: 200 / 200; object-fit: cover;"
+      />
+      <div class="flex flex-col space-y-1.5 p-4">
+        <h3 class="tracking-tight text-xl font-bold">Carrots</h3>
+        <p class="text-sm text-gray-600"><b>Price:</b> ₹15.00</p> <p><b>New Price:</b> ₹11.25</p>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star"></span>
+			<span class="fa fa-star"></span>
+			
+      </div>
+    </div>
+    <div class="border bg-card text-card-foreground rounded-lg shadow-lg overflow-hidden" data-v0-t="card">
+      <img
+        src="https://res.cloudinary.com/dzrlwqy7g/image/upload/v1703235979/vhbjv8tbuv3g5kper8ze.jpg"
+        alt="Recommendation 2"
+        class="w-full object-cover h-48"
+        width=150;
+        height=150;
+        style="aspect-ratio: auto; object-fit: cover;"
+      />
+      <div class="flex flex-col space-y-1.5 p-4">
+        <h3 class="tracking-tight text-xl font-bold">sweet potato</h3>
+        <p class="text-sm text-gray-600">This is the description for recommendation 3.</p>
+        <span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star"></span>
+      </div>
+    </div>
+  </div>
+</section>        
+</main>
+<th:block>
+    <div th:replace="fragments/footer.html :: footer"></div>
+</th:block>
+
+<script th:src="@{/js/home.js}"></script>
+<script th:src="@{/js/product-search.js}"></script>
+</body>
+</html>
